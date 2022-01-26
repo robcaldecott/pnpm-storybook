@@ -1,0 +1,24 @@
+{
+  "name": "monorepo-example",
+  "version": "1.0.0",
+  "description": "Monorepo example",
+  "scripts": {
+    "lint": "npm run lint --workspaces",
+    "test": "cross-env CI=true npm run test --workspaces --if-present",
+    "build": "npm run build --workspaces --if-present",
+    "format": "npm run format --workspaces",
+    "format:check": "npm run format:check --workspaces",
+    "watch:components": "npm run --workspace=components build -- --watch",
+    "start:api": "npm run --workspace=api start",
+    "start:app": "npm run --workspace=app dev",
+    "dev": "concurrently npm:watch:components npm:start:api npm:start:app"
+  },
+  "author": "",
+  "license": "ISC",
+  "private": true,
+  "devDependencies": {
+    "concurrently": "^7.0.0",
+    "cross-env": "^7.0.3",
+    "prettier": "^2.5.1"
+  }
+}
